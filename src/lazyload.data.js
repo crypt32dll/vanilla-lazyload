@@ -25,7 +25,6 @@ export const setData = (element, attribute, value) => {
 
 export const getStatus = (element) => getData(element, statusDataName);
 export const setStatus = (element, status) => setData(element, statusDataName, status);
-export const resetStatus = (element) => setStatus(element, null);
 
 export const hasEmptyStatus = (element) => getStatus(element) === null;
 export const hasInitialStatus = (element) => hasEmptyStatus(element) || hasStatusObserved(element);

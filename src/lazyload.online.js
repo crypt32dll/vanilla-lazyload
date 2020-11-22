@@ -1,13 +1,14 @@
 import { runningOnBrowser } from "./lazyload.environment";
-import { resetStatus } from "./lazyload.data";
+import { setStatus } from "./lazyload.data";
 import { removeClass } from "./lazyload.class";
 import { queryElements, filterErrorElements } from "./lazyload.dom";
+import { statusObserved } from "./lazyload.elementStatus";
 
 export const retryLazyLoad = (settings, instance) => {
     const errorElements = filterErrorElements(queryElements(settings));
-    errorElements.forEach(element => {
+    errorElements.forEach((element) => {
         removeClass(element, settings.class_error);
-        resetStatus(element);
+        setStatus(element, statusObserved);
     });
     instance.update();
 };

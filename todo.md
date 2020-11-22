@@ -1,5 +1,10 @@
 # TODO
 
+## Fix
+
+- Fix broken "retry when online" behaviour (errored items are set to "observed", then excluded from the count)
+- Fix broken "dynamic content" (added items are set to "observed", then excluded from the count)
+
 ## Refactor
 
 - Move lots of "status" functions from "lazyload.data" to "lazyload.status"

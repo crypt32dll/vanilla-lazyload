@@ -4,6 +4,7 @@ import { supportsIntersectionObserver } from "./lazyload.environment";
 import { onEnter, onExit } from "./lazyload.intersectionHandlers";
 import { shouldUseNative } from "./lazyload.native";
 import { resetObserver } from "./lazyload.unobserve";
+import { excludeManagedElements } from "./lazyload.dom";
 
 export const isIntersecting = (entry) => entry.isIntersecting || entry.intersectionRatio > 0;
 
@@ -21,7 +22,8 @@ const intersectionHandler = (entries, settings, instance) => {
 };
 
 export const observeElements = (observer, elements) => {
-    elements.forEach((element) => {
+    const elementsToObserve = excludeManagedElements(elements);
+    elementsToObserve.forEach((element) => {
         observer.observe(element);
         setStatus(element, statusObserved);
     });

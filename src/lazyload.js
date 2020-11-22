@@ -6,9 +6,10 @@ import { isBot, runningOnBrowser, supportsIntersectionObserver } from "./lazyloa
 import { shouldUseNative, loadAllNative } from "./lazyload.native";
 import { setOnlineCheck } from "./lazyload.online";
 import { getElementsToLoad, queryElements } from "./lazyload.dom";
-import { resetStatus } from "./lazyload.data";
+import { setStatus } from "./lazyload.data";
 import { setToLoadCount } from "./lazyload.counters";
 import { unobserve } from "./lazyload.unobserve";
+import { statusObserved } from "./lazyload.elementStatus";
 
 const LazyLoad = function (customSettings, elements) {
     const settings = getExtendedSettings(customSettings);
@@ -69,7 +70,7 @@ LazyLoad.load = (element, customSettings) => {
 };
 
 LazyLoad.resetStatus = (element) => {
-    resetStatus(element);
+    setStatus(element, statusObserved);
 };
 
 // Automatic instances creation if required (useful for async script loading)
