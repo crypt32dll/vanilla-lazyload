@@ -1,5 +1,9 @@
 # TODO
 
+## Refactor
+
+- Move lots of "status" functions from "lazyload.data" to "lazyload.status"
+
 ## Coming next
 
 - Check how LazyLoad behaves when a page was updated using DOM morphing.
